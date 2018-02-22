@@ -2,6 +2,8 @@ package com.thiti.blocnote;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,12 +11,15 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private RecyclerView mRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         this.configureToolbar();
+        this.configureRecyclerView();
     }
 
 
@@ -54,4 +59,12 @@ public class MainActivity extends AppCompatActivity {
         // Sets the Toolbar
         setSupportActionBar(toolbar);
     }
+
+    private void configureRecyclerView() {
+        mRecyclerView = (RecyclerView)findViewById(R.id.activity_main_recyclerview);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(new NoteAdapter(getLayoutInflater()));
+    }
+
 }
