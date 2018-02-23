@@ -7,8 +7,17 @@ package com.thiti.blocnote.Model;
 public class Note {
 
 
+    private long mId;
     private String mTitle;
     private String mContent;
+
+    public long getId() {
+        return mId;
+    }
+
+    public void setId(long Id) {
+        mId = Id;
+    }
 
     public String getTitle() {
         return mTitle;

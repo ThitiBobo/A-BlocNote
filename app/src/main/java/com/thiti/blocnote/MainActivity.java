@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private DatabaseOpenHelper mOpenHelper;
+    private DAOBase mNoteDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(new NoteAdapter(this,getLayoutInflater()));
     }
 
-    private void configureOpenHelper(){
-        mOpenHelper = new DatabaseOpenHelper(this);
-    }
+    private void configureOpenHelper(){mNoteDAO = new NoteDAO(this);}
 
 }
