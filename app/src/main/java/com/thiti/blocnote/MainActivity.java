@@ -1,5 +1,7 @@
 package com.thiti.blocnote;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
+    private DatabaseOpenHelper mOpenHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.configureToolbar();
         this.configureRecyclerView();
+        this.configureOpenHelper();
     }
 
 
@@ -34,23 +38,27 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         //3 - Handle actions on menu items
         switch (item.getItemId()) {
-            case R.id.menu_params:
-                Toast.makeText(
-                        this,
-                        "Il n'y a rien à paramétrer ici, passez votre chemin...",
-                        Toast.LENGTH_LONG)
-                        .show();
-                return true;
-            case R.id.menu_search:
-                Toast.makeText(
-                        this,
-                        "Recherche indisponible, demandez plutôt l'avis de Google, c'est mieux et plus rapide.",
-                        Toast.LENGTH_LONG)
-                        .show();
+            case R.id.menu_add:
+                add();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void add(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Créer un nouveau fichier");
+        builder.setMessage("Saisir l nom du fichier");
+        builder.setView(getLayoutInflater().inflate(R.layout.dialog_add,null));
+
+        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        })
+
     }
 
     private void configureToolbar(){
@@ -65,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(new NoteAdapter(getLayoutInflater()));
+    }
+
+    private void configureOpenHelper(){
+        mOpenHelper = new DatabaseOpenHelper(this);
     }
 
 }

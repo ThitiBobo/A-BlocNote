@@ -2,15 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_search"
-        android:icon="@android:drawable/ic_menu_search"
+        android:id="@+id/menu_add"
+        android:icon="@android:drawable/ic_input_add"
+        android:iconTint="@color/colorAccent"
         app:showAsAction="ifRoom"
-        android:title="Rechercher">
+        android:title="Add">
     </item>
-    <item
-        android:id="@+id/menu_params"
-        android:icon="@android:drawable/ic_menu_edit"
-        app:showAsAction="ifRoom"
-        android:title="Paramètres">
-    </item>
+
 </menu>
