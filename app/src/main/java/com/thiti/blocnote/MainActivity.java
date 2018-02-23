@@ -4,11 +4,14 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,9 +58,22 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                AlertDialog dialog = (AlertDialog) dialogInterface;
+                EditText dialogAddText = dialog.findViewById(R.id.dialog_add_editext_titre);
+                NoteAdapter note = (NoteAdapter)mRecyclerView.getAdapter();
+                note.add(dialogAddText.getText().toString());
+            }
+        });
+
+        builder.setNegativeButton("annuler", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
 
             }
-        })
+        });
+
+        builder.show();
+
 
     }
 
@@ -71,8 +87,9 @@ public class MainActivity extends AppCompatActivity {
     private void configureRecyclerView() {
         mRecyclerView = (RecyclerView)findViewById(R.id.activity_main_recyclerview);
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new NoteAdapter(getLayoutInflater()));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        //mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(new NoteAdapter(this,getLayoutInflater()));
     }
 
     private void configureOpenHelper(){

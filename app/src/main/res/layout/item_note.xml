@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardBackgroundColor="@android:color/white"
+    app:cardBackgroundColor="@color/colorPrimaryLight"
     app:cardCornerRadius="2dp"
     app:cardElevation="2dp">
 
@@ -17,12 +17,14 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/item_note_text_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
             android:text="Titre"/>
 
         <TextView
+            android:id="@+id/item_note_text_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12dp"
