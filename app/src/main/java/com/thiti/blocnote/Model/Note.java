@@ -35,12 +35,13 @@ public class Note {
         mContent = content;
     }
 
-    public Note(String title, String content) {
+    public Note(long id, String title, String content) {
+        mId = id;
         mTitle = title;
         mContent = content;
     }
 
     public Note(String title) {
-        this(title, new String());
+        this(-1,title, new String());
     }
 }

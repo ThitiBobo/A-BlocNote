@@ -2,7 +2,11 @@ package com.thiti.blocnote;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+
 import com.thiti.blocnote.Model.Note;
+
+import java.util.List;
 
 
 /**
@@ -53,11 +57,22 @@ public class NoteDAO extends DAOBase<Note> {
 
     @Override
     public Note find(int id) {
-        return null;
+        Cursor cursor = mDatabase.query(
+                NOTE_TABLE_NAME,
+                new String[]{String.valueOf(NOTE_ID),NOTE_TITLE,NOTE_CONTENT},
+                NOTE_ID + " = ?",
+                new String[]{String.valueOf(NOTE_ID)},
+                null,
+                null,
+                null,
+                null
+                );
+
+        return new Note(cursor.getLong(0),cursor.getString(1),cursor.getString(2));
     }
 
     @Override
-    public Note all() {
+    public List<Note> all() {
         return null;
     }
 }

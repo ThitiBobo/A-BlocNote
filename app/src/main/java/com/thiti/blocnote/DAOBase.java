@@ -40,6 +40,6 @@ public abstract class DAOBase<T> {
 
     public abstract T find(int id);
 
-    public abstract T all();
+    public abstract List<T> all();
 
 }
