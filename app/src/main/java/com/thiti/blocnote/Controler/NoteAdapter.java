@@ -1,4 +1,4 @@
-package com.thiti.blocnote;
+package com.thiti.blocnote.Controler;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,11 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.thiti.blocnote.Model.DAO.DAOBase;
 import com.thiti.blocnote.Model.Note;
+import com.thiti.blocnote.Model.DAO.NoteDAO;
+import com.thiti.blocnote.R;
+import com.thiti.blocnote.View.NoteViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {

@@ -1,4 +1,4 @@
-package com.thiti.blocnote;
+package com.thiti.blocnote.Model.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;

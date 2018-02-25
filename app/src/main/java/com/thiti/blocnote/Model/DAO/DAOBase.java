@@ -1,7 +1,9 @@
-package com.thiti.blocnote;
+package com.thiti.blocnote.Model.DAO;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.thiti.blocnote.Model.DatabaseOpenHelper;
 
 import java.util.List;
 

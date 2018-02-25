@@ -1,9 +1,11 @@
-package com.thiti.blocnote;
+package com.thiti.blocnote.Model;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.thiti.blocnote.Model.DAO.NoteDAO;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
