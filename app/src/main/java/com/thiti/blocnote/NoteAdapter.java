@@ -10,6 +10,7 @@ import com.thiti.blocnote.Model.Note;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
@@ -17,10 +18,25 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
     private LayoutInflater mLayoutInflater;
     private Context mContext;
     private List<Note> mNotes = new ArrayList<Note>();
+    private DAOBase mNoteDAO;
 
     public NoteAdapter(Context context, LayoutInflater layoutInflater) {
         mLayoutInflater = layoutInflater;
         mContext = context;
+        this.configureOpenHelper();
+
+        // test code
+        mNoteDAO.open();
+        List<Note> notes = mNoteDAO.all();
+
+        for(Note n : notes){
+            mNotes.add(n);
+            notifyDataSetChanged();
+        }
+
+        mNoteDAO.close();
+        // test code
+
     }
 
     @Override
@@ -41,7 +57,17 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
     }
 
     public void add(String title){
-        mNotes.add(new Note(title));
+        Note newNote = new Note(title);
+        mNotes.add(newNote);
+
+        mNoteDAO.open();
+        mNoteDAO.add(newNote);
+        mNoteDAO.close();
+
+
+
         notifyDataSetChanged();
     }
+
+    private void configureOpenHelper(){mNoteDAO = new NoteDAO(mContext);}
 }

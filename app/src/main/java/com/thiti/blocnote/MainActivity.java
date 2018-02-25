@@ -8,16 +8,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private DAOBase mNoteDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.configureToolbar();
         this.configureRecyclerView();
-        this.configureOpenHelper();
     }
 
 
@@ -60,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 AlertDialog dialog = (AlertDialog) dialogInterface;
                 EditText dialogAddText = dialog.findViewById(R.id.dialog_add_editext_titre);
-                NoteAdapter note = (NoteAdapter)mRecyclerView.getAdapter();
-                note.add(dialogAddText.getText().toString());
+                NoteAdapter noteAdapter = (NoteAdapter)mRecyclerView.getAdapter();
+                noteAdapter.add(dialogAddText.getText().toString());
             }
         });
 
@@ -87,11 +83,9 @@ public class MainActivity extends AppCompatActivity {
     private void configureRecyclerView() {
         mRecyclerView = (RecyclerView)findViewById(R.id.activity_main_recyclerview);
 
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        //mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //mRecyclerView.setLayoutManager(new GridLayoutManager(this,2)); très rigolo ^^ <3
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(new NoteAdapter(this,getLayoutInflater()));
     }
-
-    private void configureOpenHelper(){mNoteDAO = new NoteDAO(this);}
 
 }

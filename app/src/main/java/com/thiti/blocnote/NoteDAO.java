@@ -6,12 +6,9 @@ import android.database.Cursor;
 
 import com.thiti.blocnote.Model.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * Created by canard on 23/02/18.
- */
 
 public class NoteDAO extends DAOBase<Note> {
 
@@ -69,10 +66,23 @@ public class NoteDAO extends DAOBase<Note> {
                 );
 
         return new Note(cursor.getLong(0),cursor.getString(1),cursor.getString(2));
+        // manque cursor.close (regarder plus infos sur cursor)
     }
 
     @Override
     public List<Note> all() {
-        return null;
+        Cursor cursor = mDatabase.rawQuery("SELECT * FROM " + NOTE_TABLE_NAME,null);
+
+        List<Note> notes = new ArrayList<Note>();
+
+        if (cursor == null)
+            return new ArrayList<Note>();
+
+        while (cursor.moveToNext()) {
+            notes.add(new Note(cursor.getLong(0), cursor.getString(1), cursor.getString(2)));
+        }
+
+        cursor.close();
+        return notes;
     }
 }
