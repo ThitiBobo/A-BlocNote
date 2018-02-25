@@ -1,9 +1,11 @@
 package com.thiti.blocnote.View;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thiti.blocnote.Model.Note;
 import com.thiti.blocnote.R;
@@ -11,15 +13,27 @@ import com.thiti.blocnote.R;
 
 public class NoteViewHolder extends RecyclerView.ViewHolder {
 
+    private CardView mCardView;
     private TextView mTextViewTitel;
     private TextView mTextViewContent;
+
+    private Context mContext;
 
     public NoteViewHolder(Context context, View itemView) {
 
         super(itemView);
 
+        mContext = context;
+        mCardView = (CardView)itemView.findViewById(R.id.item_note_cardview);
         mTextViewTitel = (TextView)itemView.findViewById(R.id.item_note_text_title);
         mTextViewContent = (TextView)itemView.findViewById(R.id.item_note_text_content);
+
+        mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     public void bind(Note note){
