@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorPrimaryLight">#9aa5e4</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- vive les couleurs ^^ -->
+    <color name="colorPrimaryVeryLight">#547EA5</color>
+    <color name="colorPrimaryLight">#3D6589</color>
+    <color name="colorPrimary">#2A4E6E</color>
+    <color name="colorPrimaryDark">#1A3853</color>
+    <color name="colorPrimaryVeryDark">#0E2437</color>
+
+    <color name="colorSecondaryVeryLight">#8058AC</color>
+    <color name="colorSecondaryLight">#664190</color>
+    <color name="colorSecondary">#4D2C73</color>
+    <color name="colorSecondaryDark">#371C56</color>
+    <color name="colorSecondaryVeryDark">#230F3A</color>
+
+    <color name="colortTertiaryVeryLight">#FFF578</color>
+    <color name="colorTertiaryLight">#D4CB55</color>
+    <color name="colorTertiary">#AAA239</color>
+    <color name="colorTertiaryDark">#807922</color>
+    <color name="colorTertiaryVeryDark">#555011</color>
+
+    <color name="colorQuaternaryVeryLight">#FFC878</color>
+    <color name="colorQuaternaryLight">#D4A155</color>
+    <color name="colorQuaternary">#AA7C39</color>
+    <color name="colorQuaternaryDark">#805922</color>
+    <color name="colorQuaternaryVeryDark">#553911</color>
+
+    <color name="colorAcent">#CE619D</color>
+    <color name="colorText">#FFFFFF</color>
+
 </resources>

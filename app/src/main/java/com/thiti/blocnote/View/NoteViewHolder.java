@@ -1,13 +1,14 @@
 package com.thiti.blocnote.View;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.thiti.blocnote.Model.Note;
+import com.thiti.blocnote.NoteActivity;
 import com.thiti.blocnote.R;
 
 
@@ -31,7 +32,8 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent noteActivity = new Intent(mContext, NoteActivity.class);
+                mContext.startActivity(noteActivity);
             }
         });
     }

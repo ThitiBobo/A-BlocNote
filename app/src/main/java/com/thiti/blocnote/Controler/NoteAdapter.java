@@ -67,8 +67,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         mNoteDAO.add(newNote);
         mNoteDAO.close();
 
-
-
         notifyDataSetChanged();
     }
 

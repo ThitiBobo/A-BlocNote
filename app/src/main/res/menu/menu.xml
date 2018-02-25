@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_add"
         android:icon="@android:drawable/ic_input_add"
-        android:iconTint="@color/colorAccent"
+        android:iconTint="@color/colorAcent"
         app:showAsAction="ifRoom"
         android:title="Add">
     </item>
