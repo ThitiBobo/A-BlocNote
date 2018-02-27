@@ -3,6 +3,7 @@ package com.thiti.blocnote.Model.DAO;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.thiti.blocnote.Model.Note;
 
@@ -53,18 +54,22 @@ public class NoteDAO extends DAOBase<Note> {
     }
 
     @Override
-    public Note find(int id) {
+    public Note find(long id) {
         Cursor cursor = mDatabase.query(
                 NOTE_TABLE_NAME,
                 new String[]{String.valueOf(NOTE_ID),NOTE_TITLE,NOTE_CONTENT},
                 NOTE_ID + " = ?",
-                new String[]{String.valueOf(NOTE_ID)},
+                new String[]{String.valueOf(id)},
                 null,
                 null,
                 null,
                 null
                 );
 
+        if (cursor == null)
+            return null;
+        Log.v("test",String.valueOf(cursor.isBeforeFirst()));
+        cursor.moveToNext();
         return new Note(cursor.getLong(0),cursor.getString(1),cursor.getString(2));
         // manque cursor.close (regarder plus infos sur cursor)
     }

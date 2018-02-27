@@ -20,6 +20,8 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
 
     private Context mContext;
 
+    private Note mNote;
+
     public NoteViewHolder(Context context, View itemView) {
 
         super(itemView);
@@ -33,12 +35,14 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 Intent noteActivity = new Intent(mContext, NoteActivity.class);
+                noteActivity.putExtra("IdNote",String.valueOf(mNote.getId()));
                 mContext.startActivity(noteActivity);
             }
         });
     }
 
     public void bind(Note note){
+        mNote = note;
         mTextViewTitel.setText(note.getTitle());
         mTextViewContent.setText(note.getContent());
     }

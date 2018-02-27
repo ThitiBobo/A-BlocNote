@@ -16,6 +16,7 @@
         android:text="TextView"/>
 
     <EditText
+        android:id="@+id/activity_note_edit_content"
         android:inputType="textMultiLine"
         android:lines="8"
         android:minLines="6"

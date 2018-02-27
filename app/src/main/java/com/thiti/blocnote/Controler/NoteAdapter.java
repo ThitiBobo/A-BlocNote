@@ -21,12 +21,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
     private LayoutInflater mLayoutInflater;
     private Context mContext;
     private List<Note> mNotes = new ArrayList<Note>();
-    private DAOBase mNoteDAO;
+    private DAOBase<Note> mNoteDAO;
 
     public NoteAdapter(Context context, LayoutInflater layoutInflater) {
         mLayoutInflater = layoutInflater;
         mContext = context;
-        this.configureOpenHelper();
+        this.configureDAO();
 
         // test code
         mNoteDAO.open();
@@ -70,5 +70,5 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         notifyDataSetChanged();
     }
 
-    private void configureOpenHelper(){mNoteDAO = new NoteDAO(mContext);}
+    private void configureDAO(){mNoteDAO = new NoteDAO(mContext);}
 }

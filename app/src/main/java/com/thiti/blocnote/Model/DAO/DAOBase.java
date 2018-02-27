@@ -40,7 +40,7 @@ public abstract class DAOBase<T> {
 
     public abstract void upgrade(T objet);
 
-    public abstract T find(int id);
+    public abstract T find(long id);
 
     public abstract List<T> all();
 
