@@ -8,21 +8,20 @@
     android:orientation="vertical"
     tools:context="com.thiti.blocnote.NoteActivity">
 
-
-    <TextView
-        android:id="@+id/activity_note_textview_title"
+    <!-- Importation de notre Toolbar -->
+    <include
+        layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"/>
+        android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/activity_note_edit_content"
         android:inputType="textMultiLine"
-        android:lines="8"
-        android:minLines="6"
-        android:gravity="top|left"
-        android:maxLines="10"
-        android:layout_height="wrap_content"
+        android:lines="20"
+        android:minLines="1"
+        android:gravity="top"
+        android:maxLines="20"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:scrollbars="vertical"/>
 </LinearLayout>

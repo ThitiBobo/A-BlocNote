@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         this.configureRecyclerView();
     }
 
+    @Override
+    protected void onResume() {
+        NoteAdapter adapter = (NoteAdapter) mRecyclerView.getAdapter();
+        adapter.loadAllNote();
+        super.onResume();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

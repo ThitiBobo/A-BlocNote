@@ -1,6 +1,7 @@
 package com.thiti.blocnote.Controler;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import com.thiti.blocnote.Model.DAO.DAOBase;
 import com.thiti.blocnote.Model.Note;
 import com.thiti.blocnote.Model.DAO.NoteDAO;
+import com.thiti.blocnote.NoteActivity;
 import com.thiti.blocnote.R;
 import com.thiti.blocnote.View.NoteViewHolder;
 
@@ -27,18 +29,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         mLayoutInflater = layoutInflater;
         mContext = context;
         this.configureDAO();
-
-        // test code
-        mNoteDAO.open();
-        List<Note> notes = mNoteDAO.all();
-
-        for(Note n : notes){
-            mNotes.add(n);
-            notifyDataSetChanged();
-        }
-
-        mNoteDAO.close();
-        // test code
+        this.loadAllNote();
 
     }
 
@@ -67,7 +58,23 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         mNoteDAO.add(newNote);
         mNoteDAO.close();
 
+        Intent noteActivity = new Intent(mContext, NoteActivity.class);
+        noteActivity.putExtra("IdNote",String.valueOf(newNote.getId()));
+        mContext.startActivity(noteActivity);
+
         notifyDataSetChanged();
+    }
+
+    public void loadAllNote(){
+        mNotes.clear();
+        mNoteDAO.open();
+        List<Note> notes = mNoteDAO.all();
+
+        for(Note n : notes){
+            mNotes.add(n);
+            notifyDataSetChanged();
+        }
+        mNoteDAO.close();
     }
 
     private void configureDAO(){mNoteDAO = new NoteDAO(mContext);}
