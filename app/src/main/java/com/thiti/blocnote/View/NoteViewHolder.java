@@ -2,8 +2,12 @@ package com.thiti.blocnote.View;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -45,5 +49,22 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         mNote = note;
         mTextViewTitel.setText(note.getTitle());
         mTextViewContent.setText(note.getContent());
+        mCardView.setBackgroundColor(aleaColor());
+
+    }
+
+    public int aleaColor(){
+        int nb = (int) (Math.random() * 4 );
+        int color = 0;
+
+        switch (nb){
+            case 0 : {color = ContextCompat.getColor(mContext,R.color.colorPrimaryVeryLight); break;}
+            case 1 : {color = ContextCompat.getColor(mContext,R.color.colorSecondaryVeryLight); break;}
+            case 2 : {color = ContextCompat.getColor(mContext,R.color.colortTertiaryVeryLight); break;}
+            case 3 : {color = ContextCompat.getColor(mContext,R.color.colorQuaternaryVeryLight); break;}
+        }
+
+        Log.v("test", String.valueOf(color));
+        return color;
     }
 }
