@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto">
-<item
-    android:id="@+id/menu_add"
-    android:icon="@android:drawable/ic_input_add"
-    android:iconTint="@color/colorAcent"
-    app:showAsAction="ifRoom"
-    android:title="Add">
-</item>
+
+    <item
+        android:id="@+id/menu_reload_color"
+        android:iconTint="@color/colorAcent"
+        app:showAsAction="ifRoom"
+        android:title="Color">
+    </item>
+
+    <item
+        android:id="@+id/menu_add"
+        android:icon="@android:drawable/ic_input_add"
+        android:iconTint="@color/colorAcent"
+        app:showAsAction="ifRoom"
+        android:title="Add">
+    </item>
 
 </menu>

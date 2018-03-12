@@ -47,9 +47,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_add:
                 add();
                 return true;
+            case R.id.menu_reload_color:
+                reloadColor();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void reloadColor(){
+        NoteAdapter adapteur = (NoteAdapter) mRecyclerView.getAdapter();
+        adapteur.loadAllNote();
     }
 
     private void add(){
