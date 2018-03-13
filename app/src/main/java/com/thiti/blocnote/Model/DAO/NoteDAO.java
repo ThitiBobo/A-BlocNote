@@ -3,14 +3,16 @@ package com.thiti.blocnote.Model.DAO;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 
 import com.thiti.blocnote.Model.Note;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * NoteDAO est une classe dérivant de DAOBase, permet de gérer les enregistrements
+ * avec la table "NOTE" grâce au instruction CRUD.
+ */
 public class NoteDAO extends DAOBase<Note> {
 
     public static final String NOTE_TABLE_NAME = "NOTE";
@@ -68,7 +70,6 @@ public class NoteDAO extends DAOBase<Note> {
 
         if (cursor == null)
             return null;
-        Log.v("test",String.valueOf(cursor.isBeforeFirst()));
         cursor.moveToNext();
         return new Note(cursor.getLong(0),cursor.getString(1),cursor.getString(2));
         // manque cursor.close (regarder plus infos sur cursor)

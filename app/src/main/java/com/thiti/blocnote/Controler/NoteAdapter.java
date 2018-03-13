@@ -17,7 +17,11 @@ import com.thiti.blocnote.View.NoteViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * NoteAdapter dérive de RecyclerView.Adapter et permet la gestion de tout les éléments Note dans le
+ * RecyclerView. Elle garde toute les notes dans une listes et s'occupe de faire le lien avec la BDD
+ * en passant par NoteDAO. Elle passe par NoteViewHolder pour gérer l'affichage des Notes.
+ */
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
     private LayoutInflater mLayoutInflater;
@@ -29,7 +33,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         mContext = context;
         this.configureDAO();
         this.loadAllNote();
-
     }
 
     @Override
@@ -49,6 +52,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         return mNotes.size();
     }
 
+    // cette méthode s'occupe d'ajouter une nouvelle note dans la BDD
+    // et l'affiche dans le RecyclerView.
     public void add(String title){
         Note newNote = new Note(title);
         mNotes.add(newNote);
@@ -64,6 +69,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         notifyDataSetChanged();
     }
 
+    // cette méthode s'occupe de charger toutes les notes enregistrées dans la BDD
+    // et les affichent dans le RecyclerView.
     public void loadAllNote(){
         mNotes.clear();
         mNoteDAO.open();
@@ -76,5 +83,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         mNoteDAO.close();
     }
 
+    // configure l'objet NoteDAO
     private void configureDAO(){mNoteDAO = new NoteDAO(mContext);}
 }

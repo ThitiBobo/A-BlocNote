@@ -21,6 +21,7 @@ public class NoteActivity extends AppCompatActivity {
     private Note mNote;
     private DAOBase<Note> mNoteDao;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

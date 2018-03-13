@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.thiti.blocnote.Model.DAO.NoteDAO;
 
+/*
+    La classe DatabaseOpenHelper permet la création et la mise à jour de la BDD
+ */
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
 
@@ -14,11 +17,13 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         super(context, name, cursorFactory, version);
     }
 
+    // Création de la BDD
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(NoteDAO.NOTE_TABLE_CREATE);
     }
 
+    // MAJ de la BDD
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(NoteDAO.NOTE_TABLE_DROP);

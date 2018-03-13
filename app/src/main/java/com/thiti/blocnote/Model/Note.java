@@ -1,11 +1,10 @@
 package com.thiti.blocnote.Model;
 
 /**
- * Created by canard on 23/02/18.
+ * Note est une classe qui permet de modéliser les notes enregistrées dans la BDD
  */
 
 public class Note {
-
 
     private long mId;
     private String mTitle;
