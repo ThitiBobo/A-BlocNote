@@ -2,8 +2,6 @@ package com.thiti.blocnote.View;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +13,9 @@ import com.thiti.blocnote.Model.Note;
 import com.thiti.blocnote.NoteActivity;
 import com.thiti.blocnote.R;
 
-
+/**
+ * NoteViewHolder permet de gérer l'affichage des notes dans le RecyclerView
+ */
 public class NoteViewHolder extends RecyclerView.ViewHolder {
 
     private CardView mCardView;
@@ -49,10 +49,12 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         mNote = note;
         mTextViewTitel.setText(note.getTitle());
         mTextViewContent.setText(note.getContent());
+        // on configure le background du CardView avec une couleur aléatoire.
         mCardView.setBackgroundColor(aleaColor());
 
     }
 
+    // Retourne une couleur aléatoire
     public int aleaColor(){
         int nb = (int) (Math.random() * 4 );
         int color = 0;
@@ -63,8 +65,6 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
             case 2 : {color = ContextCompat.getColor(mContext,R.color.colortTertiaryVeryLight); break;}
             case 3 : {color = ContextCompat.getColor(mContext,R.color.colorQuaternaryVeryLight); break;}
         }
-
-        Log.v("test", String.valueOf(color));
         return color;
     }
 }
