@@ -24,7 +24,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
     private Context mContext;
     private List<Note> mNotes = new ArrayList<Note>();
     private DAOBase<Note> mNoteDAO;
-
     public NoteAdapter(Context context, LayoutInflater layoutInflater) {
         mLayoutInflater = layoutInflater;
         mContext = context;

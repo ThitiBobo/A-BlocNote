@@ -27,6 +27,7 @@
             android:textSize="18dp"
             android:text="Titre"/>
 
+
         <TextView
             android:id="@+id/item_note_text_content"
             android:layout_width="match_parent"
